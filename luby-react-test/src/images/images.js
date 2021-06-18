@@ -1,0 +1,1 @@
+export const githubLogo = 'https://icones.pro/wp-content/uploads/2021/06/icone-github-jaune.png'
