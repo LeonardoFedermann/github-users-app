@@ -1,12 +1,21 @@
-import { PinDropSharp } from '@material-ui/icons'
 import {useState} from 'react'
 import {GlobalContext} from './GlobalContext'
 
 export const GlobalContextProvider = (props) =>{
-    const [user, setUser] = useState({})
+    const [shownUser, setShownUser] = useState({})
+    const [repos, setRepos] = useState([])
+    const [followers, setFollowers] = useState([])
+    const [followingUsers, setFollowingUsers] = useState([])
+
     const data = {
-        user, 
-        setUser
+        shownUser,
+        repos,
+        followers,
+        followingUsers, 
+        setShownUser,
+        setRepos,
+        setFollowers,
+        setFollowingUsers
     }
     return (
         <GlobalContext.Provider value={data}>
