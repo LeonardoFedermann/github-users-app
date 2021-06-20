@@ -1,33 +1,33 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { LoginContainer, LoginForm, StyledTextField, StyledButton } from '../style/style'
 import { githubLogo } from '../images/images'
 import { useForm } from '../custom hooks/useForm'
-import {BASE_URL} from '../base url/BaseURL'
+import { BASE_URL } from '../base url/BaseURL'
 import { goToFirstProfile } from '../coordinator/Coordinator'
-import {GlobalContext} from '../global/GlobalContext'
+import { GlobalContext } from '../global/GlobalContext'
 import { useUnprotectedPage } from '../custom hooks/useUnprotectedPage'
 
 export default function LoginPage() {
     const [user, setUser] = useState({})
-    const [form, setForm, handleValues, resetForm] = useForm({ username: "" })
-    const {shownUser, setShownUser} = useContext(GlobalContext)
+    const [form, setForm, handleValues] = useForm({ username: "" })
+    const { logedUser, setLogedUser } = useContext(GlobalContext)
     const history = useHistory()
 
     useUnprotectedPage()
 
-    useEffect(()=>{
-        setShownUser(user)
+    useEffect(() => {
+        setLogedUser(user)
     }, [user])
 
-    const login = async(e) =>{
+    const login = async (e) => {
         e.preventDefault()
-        try{
+        try {
             const user = await axios.get(`${BASE_URL}/users/${form.username}`)
             setUser(user.data)
             goToFirstProfile(history, form.username)
-        }catch(error){
+        } catch (error) {
             alert(error.response.data.message)
         }
     }

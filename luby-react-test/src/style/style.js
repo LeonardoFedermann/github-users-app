@@ -2,11 +2,27 @@ import styled from 'styled-components'
 import {TextField} from '@material-ui/core'
 import Button from '@material-ui/core/button'
 
+// COLORS
 export const primary = '#3b444b'
 export const secondary = '#ffc425'
 export const darkColor = '#232b2b'
 export const borderColor = '#a7adba'
 
+//MAIN CONTAINER
+export const MainContainer = styled.main`
+width: 100%;
+height: 100vh;
+overflow-y: auto;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+background-color: ${primary};
+color: white;
+font-family: 'Arial';
+`
+
+// LOGIN PAGE
 export const LoginContainer = styled.main`
 width: 100%;
 height: 100vh;
@@ -39,19 +55,7 @@ export const StyledButton = styled(Button)`
 width: 100%;
 `
 
-export const MainContainer = styled.main`
-width: 100%;
-height: 100vh;
-overflow-y: auto;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-background-color: ${primary};
-color: white;
-font-family: 'Arial';
-`
-
+// PROFILE PAGE
 export const ProfileImage = styled.img`
 width: 100px;
 border-radius: 50%;
@@ -103,18 +107,6 @@ div{
 }
 `
 
-export const YellowContainer = styled.div`
-width: 10%;
-background-color: yellow;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-div{
-    width: 100%;
-}
-`
-
 export const ProfileNumbersContainer = styled.section`
 width: 100%;
 height: 15vh;
@@ -150,29 +142,9 @@ p{
 h1{
     margin: 5% 10% 0 10%;
 }
-
-// width: 100%;
-// height: 10vh;
-// margin-bottom: 3vh;
-// background-color: ${primary};
-// display: flex;
-// align-items: center;
-// justify-content: flex-end;
-// div{
-//     width: 90%;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: start;
-//     justify-content: space-around;
-//     h1{
-//         margin-bottom: 0;
-//     }
-//     p{
-//         margin: 0;
-//     }
-// }
 `
 
+// REPOS
 export const ReposHeaderContainer = styled.header`
 width: 100%;
 height: 75px;
@@ -207,6 +179,7 @@ div{
 }
 `
 
+//LIST OF FOLLOWERS AND FOLLOWING USERS
 export const UserCardContainer = styled.section`
 height: 90px;
 width: 100%;
@@ -250,5 +223,21 @@ p{
     color: red;
     margin: 5%;
     cursor: pointer;
+}
+`
+
+// ERROR PAGE
+export const ErrorContainer = styled.main`
+width: 85%;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: ${primary};
+color: white;
+font-family: 'Arial';
+img{
+    width: 30%;
 }
 `

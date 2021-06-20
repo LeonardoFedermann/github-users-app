@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { ProfileBioContainer } from '../style/style'
-import { GlobalContext } from '../global/GlobalContext'
 
 export const ProfileBio = (props) => {
     return (
@@ -9,7 +8,7 @@ export const ProfileBio = (props) => {
                 <>
                     <h1>BIO</h1>
                     <p>{props.bio}</p>
-                </> 
+                </>
             }
         </ProfileBioContainer>
     )
