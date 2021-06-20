@@ -1,7 +1,7 @@
 ## TESTE TÉCNICO - PROGRAMA LABLUBY JS
 
 Prezados membros da Luby,    
-Segue nesta aplicação a realização do teste de React.js e do teste de lógica para seu processo seletivo. O link da aplicação, gerado por meio do surge, é: https://github-app-leonardo-federmann.surge.sh/
+Segue nesta aplicação a realização do teste de React.js e do teste de lógica para seu processo seletivo. O link da aplicação, gerado por meio do surge, é: https://github-app-leonardo-federmann.surge.sh/    
 Além disso, as respostas das questões do teste de lógica se encontram em uma pasta própria (**TESTE DE LÓGICA**), dentro da pasta src.
 
 #### REQUISITOS NÃO FUNCIONAIS
