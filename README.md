@@ -16,7 +16,7 @@ Conforme solicitado:
 - A navegação com abas foi elaboada conforme solicitado;
 - Quando o usuário estiver visualizando o perfil de outro, há, no canto superior direito da tela, um botão "Salvar" por meio do qual é possível tornar aquele usuário o principal da aplicação - exatamente conforme o protótipo fornecido. Adicionei, também, uma funcionalidade extra: caso o usuário clique no botão de "Salvar", tal botão mudará e passará a ser o de "Sair", por meio do qual é possível efetuar o logout;
 - Na tela de início, no mesmo canto, haverá um botão de "Sair", por meio do qual o usuário poderá sair da aplicação. Tal botão (e não o de "Salvar") estará presente sempre que o usuário estiver visualizando seu próprio perfil;
-- Apenas as informações existentes no perfil do usuário serão exibidas. No caso específico do nome, caso o usuário não possua um cadastrado, será exibido sua informação de login. EXEMPLO: caso o usuário Anilton Veiga (exibido no protótipo) não possua nome, será exibido, neste campo, seu nome de login, ou seja, anilton.veiga.
+- Apenas as informações existentes no perfil do usuário serão exibidas. No caso específico do nome, caso o usuário não possua um nome cadastrado, será exibida sua informação de login. EXEMPLO: caso o usuário Anilton Veiga (exibido no protótipo) não possua nome, será exibido, neste campo, seu nome de login (anilton.veiga).
 
 #### OBSERVAÇÕES ADICIONAIS
 
