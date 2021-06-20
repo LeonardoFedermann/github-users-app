@@ -5,13 +5,13 @@ import axios from 'axios'
 import {MainContainer, ProfileImage} from '../style/style'
 import {BASE_URL} from '../base url/BaseURL'
 import {GlobalContext} from '../global/GlobalContext'
-import {ProfileHeader} from '../components/ProfileHeader'
+import {FirstProfileHeader} from '../components/FirstProfileHeader'
 import { goBack, goToLogin } from '../coordinator/Coordinator'
 import { ProfilePresentation } from '../components/ProfilePresentation'
 import {ProfileNumbers} from '../components/ProfileNumbers'
 import { ProfileBio } from '../components/ProfileBio'
 
-export default function ProfilePage (){
+export default function FirstProfilePage (){
     const [user, setUser] = useState({})
     const {shownUser, setShownUser} = useContext(GlobalContext)
     const history = useHistory()
@@ -43,12 +43,11 @@ export default function ProfilePage (){
 
     return (
         <MainContainer>
-            <ProfileHeader 
+            <FirstProfileHeader 
             login={user.login}
             function = {shownUser.login === user.login ? logout : saveUser}
             buttonWord = {shownUser.login === user.login ? 'Sair' : 'Salvar'}
             buttonColor = {shownUser.login === user.login ? 'red' : 'green'}
-            goToLastPage={()=>goBack(history)}
             />
              <ProfileImage alt={user.login} src={user.avatar_url}/>
              <ProfilePresentation 
