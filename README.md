@@ -1,4 +1,4 @@
-## REACT.JS CHALLENGE / TESTE DE LÓGICA
+## TESTE TÉCNICO - PROGRAMA LABLUBY JS
 
 Prezados membros da Luby,    
 Segue nesta aplicação a realização do teste de React.js e do teste de lógica para seu processo seletivo. O link da aplicação, gerado por meio do surge, é: https://github-app-leonardo-federmann.surge.sh/
@@ -18,7 +18,7 @@ Conforme solicitado:
 - Na tela de início, no mesmo canto, haverá um botão de "Sair", por meio do qual o usuário poderá sair da aplicação. Tal botão (e não o de "Salvar") estará presente sempre que o usuário estiver visualizando seu próprio perfil;
 - Apenas as informações existentes no perfil do usuário serão exibidas. No caso específico do nome, caso o usuário não possua um cadastrado, será exibido sua informação de login. EXEMPLO: caso o usuário Anilton Veiga (exibido no protótipo) não possua nome, será exibido, neste campo, seu nome de login, ou seja, anilton.veiga.
 
-### OBSERVAÇÕES ADICIONAIS
+#### OBSERVAÇÕES ADICIONAIS
 
 - Todas as funcionalidades estão de acordo com o exigido e o design segue os padrões do protótipo. A estilização não está exatamente igual à do protótipo; contudo, poderei adequá-la caso tenha a oportunidade posteriormente;
 - A aplicação foi desenvolvida para IPhone 6/7/8. Ela se encontra responsiva para variados tipos de aparelhos Mobile, tais como Galaxy e Moto G;
