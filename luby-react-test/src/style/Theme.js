@@ -1,12 +1,12 @@
-import {createMuiTheme} from '@material-ui/core/styles'
-import {primary, secondary} from './style'
+import { createMuiTheme } from '@material-ui/core/styles'
+import { primary, secondary } from './style'
 
 export const Theme = createMuiTheme({
-    palette:{
-        primary:{
+    palette: {
+        primary: {
             main: primary
         },
-        secondary:{
+        secondary: {
             main: secondary
         }
     }

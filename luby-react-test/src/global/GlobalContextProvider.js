@@ -1,18 +1,18 @@
-import {useState} from 'react'
-import {GlobalContext} from './GlobalContext'
+import { useState } from 'react'
+import { GlobalContext } from './GlobalContext'
 
-export const GlobalContextProvider = (props) =>{
-    const [shownUser, setShownUser] = useState({})
+export const GlobalContextProvider = (props) => {
+    const [logedUser, setLogedUser] = useState({})
     const [repos, setRepos] = useState([])
     const [followers, setFollowers] = useState([])
     const [followingUsers, setFollowingUsers] = useState([])
 
     const data = {
-        shownUser,
+        logedUser,
         repos,
         followers,
-        followingUsers, 
-        setShownUser,
+        followingUsers,
+        setLogedUser,
         setRepos,
         setFollowers,
         setFollowingUsers

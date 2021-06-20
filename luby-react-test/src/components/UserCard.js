@@ -1,13 +1,9 @@
-import React, { useContext } from 'react'
-import { UserCardContainer, YellowContainer } from '../style/style'
-import { GlobalContext } from '../global/GlobalContext'
-import { goBack } from '../coordinator/Coordinator'
-import { useHistory } from 'react-router-dom'
+import React from 'react'
+import { UserCardContainer } from '../style/style'
 
 export const UserCard = (props) => {
-        return (
+    return (
         <UserCardContainer>
-            {/* <YellowContainer /> */}
             <div>
                 <img alt={props.login} src={props.imageUrl} />
                 <h4>{props.login}</h4>
