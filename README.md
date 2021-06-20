@@ -8,7 +8,7 @@ Além disso, as respostas das questões do teste de lógica se encontram em uma 
 
 Conforme solicitado, o aplicativo utiliza o React.js e gerencia suas rotas por meio do React Router. Ademais, o estado global (que contém, dentre outras informações, o usuário logado, os seguidores e os repositórios do usuário exibido) é gerenciado por meio de Context API e a, para a estilização, usei tanto componentes estilizados (por meio da biblioteca Styled-components) quanto o Design System Material UI.  
 
-#### REQUISITOS NÃO FUNCIONAIS
+#### REQUISITOS FUNCIONAIS
 
 Conforme solicitado:
 - O usuário é autenticado por meio de seu username no GitHub. Caso não esteja autenticado, o usuário não terá acesso às páginas da aplicação, apenas à de erro e à de login. Tal processo de autenticação e autorização foi realizado por meio de Custom Hooks;
