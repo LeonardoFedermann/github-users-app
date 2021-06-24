@@ -1,31 +1,40 @@
-## TESTE TÉCNICO - PROGRAMA LABLUBY JS
+## GITHUB USERS APP
 
-Prezados membros da Luby,    
-Segue nesta aplicação a realização do teste de React.js e do teste de lógica para seu processo seletivo. O link da aplicação, gerado por meio do surge, é: https://github-app-leonardo-federmann.surge.sh/    
-Além disso, as respostas das questões do teste de lógica se encontram em uma pasta própria (**TESTE DE LÓGICA**), dentro da pasta src.
+Aplicação em React.js criada com o objetivo de ser um aplicativo Mobile por meio do qual usuários do GitHub possam acessar informações de outros usuários. O link da aplicação, gerado por meio do surge, é: https://github-app-leonardo-federmann.surge.sh/ 
+A aplicação foi desenvolvida por meio da integração com a API própria do GitHub, cujo link é: https://docs.github.com/en/rest   
 
-#### REQUISITOS NÃO FUNCIONAIS
+#### NAVEGAÇÃO
 
-Conforme solicitado, o aplicativo utiliza o React.js e gerencia suas rotas por meio do React Router. Ademais, o estado global (que contém, dentre outras informações, o usuário logado, os seguidores e os repositórios do usuário exibido) é gerenciado por meio de Context API e a, para a estilização, usei tanto componentes estilizados (por meio da biblioteca Styled-components) quanto o Design System Material UI.  
+Inicialmente, é exibida uma página de login, na qual é possível inserir o nome de um usuário cadastrado no GitHub. Há um processo de autenticação por meio do qual será exibida uma mensagem de "Not found" caso o nome inserido seja inválido e uma de erro caso o campo de input não seja preenchido, orientando o usuário a preenchê-lo.     
+Em seguida, o usuário é direcionado à página do perfil cujo nome foi inserido, que conterá:
+- O nome de usuário no canto superior esquerdo;
+- Um botão de "Sair" no canto superior direito, por meio do qual é possível efetuar o logout e retornar à página de login;
+- A foto cadastrada do usuário;
+- O nome completo do usuário, caso cadastrado (se não houver um nome completo cadastrado, será exibido o mesmo nome usado no login);
+- Um container que exibe o número de seguidores, o número de usuários seguidos e o número de repositórios;
+- A biografia do usuário, se houver.    
+Caso o usuário clique em seu número de repositórios, será direcionado a uma página na qual são listados todos os seus repos.     
+Caso clique no número de seguidores ou de usuários seguidos, será direcionado a uma página que conterá todos os usuários dessas listas, sendo cada um exibido em um card em cujo canto direito haverá uma seta que, se clicada, exibirá a página de perfil do referido usuário.    
+    
+Sempre que for exibido o perfil de um usuário que não seja o logado, no canto superior direito, haverá um botão de "Salvar" em vez de "Sair", por meio do qual pode-se tornar o usuário visualizado o principal da aplicação.    
+Caso o usuário esteja visualizando seu próprio perfil, será exibido o botão de "Sair" em vez de "Salvar". 
 
-#### REQUISITOS FUNCIONAIS
 
-Conforme solicitado:
-- O usuário é autenticado por meio de seu username no GitHub. Caso não esteja autenticado, o usuário não terá acesso às páginas da aplicação, apenas à de erro e à de login. Tal processo de autenticação e autorização foi realizado por meio de Custom Hooks;
-- As informações do usuário logado são armazenadas no estado global e do usuário visualizado, em uma variável de estado dentro de cada arquivo (para tanto, foi usado o useState, um Hook nativo do React.js);
-- A navegação com abas foi elaboada conforme solicitado;
-- Quando o usuário estiver visualizando o perfil de outro, há, no canto superior direito da tela, um botão "Salvar" por meio do qual é possível tornar aquele usuário o principal da aplicação - exatamente conforme o protótipo fornecido. Adicionei, também, uma funcionalidade extra: caso o usuário clique no botão de "Salvar", tal botão mudará e passará a ser o de "Sair", por meio do qual é possível efetuar o logout;
-- Na tela de início, no mesmo canto, haverá um botão de "Sair", por meio do qual o usuário poderá sair da aplicação. Tal botão (e não o de "Salvar") estará presente sempre que o usuário estiver visualizando seu próprio perfil;
-- Apenas as informações existentes no perfil do usuário serão exibidas. No caso específico do nome, caso o usuário não possua um nome cadastrado, será exibida sua informação de login. EXEMPLO: caso o usuário Anilton Veiga (exibido no protótipo) não possua nome, será exibido, neste campo, seu nome de login (anilton.veiga).
+#### FERRAMENTAS
 
-#### OBSERVAÇÕES ADICIONAIS
+Algumas das ferramentas utilizadas, todas próprias do React.js, foram:
+- React Router, de modo a estruturas a navegação pelas páginas;
+- Hooks nativos do React.js, tais como useState, useEffect e useContext;
+- Custom Hooks, visando a efetuar a autenticação e autorização de acesso e a possibilitar o uso de input controlado no campo de login;
+- Context API, de forma a gerenciar o estado global da aplicação, que contém, dentre outras informações, os repositórios do usuário visualizado e os dados do usuário logado;
+- Styled-Components e Material UI, com o objetivo de estilizar a aplicação;
+- Axios, de modo a realizar a integração com a API do GitHub.
 
-- Todas as funcionalidades estão de acordo com o exigido e o design segue os padrões do protótipo. A estilização não está exatamente igual à do protótipo; contudo, poderei adequá-la caso tenha a oportunidade posteriormente;
-- A aplicação foi desenvolvida para IPhone 6/7/8. Ela se encontra responsiva para variados tipos de aparelhos Mobile, tais como Galaxy e Moto G;
-- Caso o usuário digite uma URL que não esteja de acordo com nenhuma rota, será direcionado a uma página de erro, na qual haverá um botão que irá conduzi-lo à de login/autenticação.
+### O QUE FUNCIONA
 
-Por fim, agradeço imensamente pela oportunidade de realizar este desafio e espero ansiosamente trabalhar com vocês em breve!
+Todas as funcionalidades supracitadas estão em pleno desempenho. A aplicação foi desenvolvida por meio de **Mobile First**, especificamente para IPhone 6/7/8, estando responsiva para variados tipos de aparelhos Mobile, tais como Galaxy e MotoG.
 
-Atenciosamente,
+### O QUE NÃO FUNCIONA
 
-Leonardo Federmann
+Haverá leves desvios na estilização e design caso a aplicação seja usada em Desktop, visto não ter sido elaborada para tal. Ademais, não é possível acessar detalhes dos repositórios de cada usuário. 
+
