@@ -3,7 +3,7 @@
 Aplicação em React.js criada com o objetivo de ser um aplicativo Mobile por meio do qual usuários do GitHub possam acessar informações de outros usuários. O link da aplicação, gerado por meio do surge, é: https://github-app-leonardo-federmann.surge.sh/     
 A aplicação foi desenvolvida por meio da integração com a API própria do GitHub, cujo link é: https://docs.github.com/en/rest   
 
-#### NAVEGAÇÃO
+### NAVEGAÇÃO
 
 Inicialmente, é exibida uma página de login, na qual é possível inserir o nome de um usuário cadastrado no GitHub. Há um processo de autenticação por meio do qual será exibida uma mensagem de "Not found" caso o nome inserido seja inválido e uma de erro caso o campo de input não seja preenchido, orientando o usuário a preenchê-lo.     
 Em seguida, o usuário é direcionado à página do perfil cujo nome foi inserido, que conterá:
@@ -21,7 +21,7 @@ Sempre que for exibido o perfil de um usuário que não seja o logado, no canto 
 Caso o usuário esteja visualizando seu próprio perfil, será exibido o botão de "Sair" em vez de "Salvar". 
 
 
-#### FERRAMENTAS
+### FERRAMENTAS
 
 Algumas das ferramentas utilizadas, todas próprias do React.js, foram:
 - React Router, de modo a estruturas a navegação pelas páginas;
