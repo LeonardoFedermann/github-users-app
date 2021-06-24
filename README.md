@@ -13,6 +13,7 @@ Em seguida, o usuário é direcionado à página do perfil cujo nome foi inserid
 - O nome completo do usuário, caso cadastrado (se não houver um nome completo cadastrado, será exibido o mesmo nome usado no login);
 - Um container que exibe o número de seguidores, o número de usuários seguidos e o número de repositórios;
 - A biografia do usuário, se houver.    
+
 Caso o usuário clique em seu número de repositórios, será direcionado a uma página na qual são listados todos os seus repos.     
 Caso clique no número de seguidores ou de usuários seguidos, será direcionado a uma página que conterá todos os usuários dessas listas, sendo cada um exibido em um card em cujo canto direito haverá uma seta que, se clicada, exibirá a página de perfil do referido usuário.    
     
