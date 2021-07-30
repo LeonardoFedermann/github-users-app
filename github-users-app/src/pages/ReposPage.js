@@ -3,19 +3,20 @@ import { MainContainer } from '../style/style'
 import { ReposHeader } from '../components/ReposHeader'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import axios from 'axios'
-import { useContext } from 'react'
-import { GlobalContext } from '../global/GlobalContext'
 import { useHistory, useParams } from 'react-router-dom'
 import { BASE_URL } from '../base url/BaseURL'
 import { RepoCard } from '../components/RepoCard'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/actions'
+import { connect } from 'react-redux'
 
-export default function ReposPage() {
-    const { repos, setRepos } = useContext(GlobalContext)
+function ReposPage(props) {
     const { username } = useParams()
+    const { logedUser, repos, setRepos } = props
     const history = useHistory()
     const [quantity, setQuantity] = useState(0)
 
-    useProtectedPage(history)
+    useProtectedPage(history, logedUser)
     useEffect(() => {
         getRepos()
     }, [])
@@ -47,3 +48,11 @@ export default function ReposPage() {
         </MainContainer>
     )
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
+const mapStateToProps = state => ({
+    repos: state.repos,
+    logedUser: state.logedUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReposPage)

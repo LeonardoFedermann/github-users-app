@@ -1,22 +1,24 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { MainContainer } from '../style/style'
 import { UserCard } from '../components/UserCard'
-import { GlobalContext } from '../global/GlobalContext'
 import { UsersListHeader } from '../components/UsersListHeader'
 import { BASE_URL } from '../base url/BaseURL'
 import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
 import { goToProfile } from '../coordinator/Coordinator'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/actions'
+import { connect } from 'react-redux'
 
-export default function FollowersPage() {
-    const { followers, setFollowers } = useContext(GlobalContext)
+function FollowersPage(props) {
+    const { followers, setFollowers } = props
     const history = useHistory()
     const { username } = useParams()
     const [quantity, setQuantity] = useState(0)
 
-    useProtectedPage(history)
+    useProtectedPage(history, props.logedUser)
 
     useEffect(() => {
         getFollowers()
@@ -48,3 +50,11 @@ export default function FollowersPage() {
         </MainContainer>
     )
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
+const mapStateToProps = state => ({
+    followers: state.followers,
+    logedUser: state.logedUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FollowersPage)

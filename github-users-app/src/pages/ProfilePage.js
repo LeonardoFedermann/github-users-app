@@ -1,23 +1,25 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import axios from 'axios'
 import { MainContainer, ProfileImage } from '../style/style'
 import { BASE_URL } from '../base url/BaseURL'
-import { GlobalContext } from '../global/GlobalContext'
 import { ProfileHeader } from '../components/ProfileHeader'
 import { goBack, goToLogin } from '../coordinator/Coordinator'
 import { ProfilePresentation } from '../components/ProfilePresentation'
 import { ProfileNumbers } from '../components/ProfileNumbers'
 import { ProfileBio } from '../components/ProfileBio'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/actions'
+import { connect } from 'react-redux'
 
-export default function ProfilePage() {
+function ProfilePage(props) {
     const [user, setUser] = useState({})
-    const { logedUser, setLogedUser } = useContext(GlobalContext)
+    const { logedUser, saveUser, logOut } = props
     const history = useHistory()
     const { username } = useParams()
 
-    useProtectedPage(history)
+    useProtectedPage(history, logedUser)
 
     useEffect(() => {
         getUser()
@@ -33,19 +35,15 @@ export default function ProfilePage() {
     }
 
     const logout = () => {
-        setLogedUser({})
+        logOut()
         goToLogin(history)
-    }
-
-    const saveUser = () => {
-        setLogedUser(user)
     }
 
     return (
         <MainContainer>
             <ProfileHeader
                 login={user.login}
-                function={logedUser.login === user.login ? logout : saveUser}
+                function={logedUser.login === user.login ? logout : ()=> saveUser(user)}
                 buttonWord={logedUser.login === user.login ? 'Sair' : 'Salvar'}
                 buttonColor={logedUser.login === user.login ? 'red' : 'green'}
                 goToLastPage={() => goBack(history)}
@@ -70,3 +68,9 @@ export default function ProfilePage() {
         </MainContainer>
     )
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
+const mapStateToProps = state => ({
+    logedUser: state.logedUser
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
