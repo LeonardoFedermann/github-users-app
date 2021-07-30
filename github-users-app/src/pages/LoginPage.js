@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { LoginContainer, LoginForm, StyledTextField, StyledButton } from '../style/style'
@@ -6,19 +6,21 @@ import { githubLogo } from '../images/images'
 import { useForm } from '../custom hooks/useForm'
 import { BASE_URL } from '../base url/BaseURL'
 import { goToFirstProfile } from '../coordinator/Coordinator'
-import { GlobalContext } from '../global/GlobalContext'
 import { useUnprotectedPage } from '../custom hooks/useUnprotectedPage'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/actions'
+import { connect } from 'react-redux'
 
-export default function LoginPage() {
+function LoginPage(props) {
     const [user, setUser] = useState({})
+    const { logedUser, saveUser } = props
     const [form, setForm, handleValues] = useForm({ username: "" })
-    const { logedUser, setLogedUser } = useContext(GlobalContext)
     const history = useHistory()
 
-    useUnprotectedPage()
+    useUnprotectedPage(history, logedUser)
 
     useEffect(() => {
-        setLogedUser(user)
+        saveUser(user)
     }, [user])
 
     const login = async (e) => {
@@ -48,7 +50,7 @@ export default function LoginPage() {
                 <StyledButton
                     color="secondary"
                     variant="contained"
-                    onClick={login}
+                    type='submit'
                 >
                     Entrar
                 </StyledButton>
@@ -56,3 +58,10 @@ export default function LoginPage() {
         </LoginContainer>
     )
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
+const mapStateToProps = state => ({
+    logedUser: state.logedUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)

@@ -1,10 +1,7 @@
-import { useEffect, useContext } from 'react'
+import { useEffect } from 'react'
 import { goToProfile } from '../coordinator/Coordinator'
-import { GlobalContext } from '../global/GlobalContext'
 
-export const useUnprotectedPage = (history) => {
-    const { logedUser, setLogedUser } = useContext(GlobalContext)
-
+export const useUnprotectedPage = (history, logedUser) => {
     useEffect(() => {
         if (logedUser.login) {
             goToProfile(history, logedUser.login)
