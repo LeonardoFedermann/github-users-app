@@ -6,9 +6,8 @@ import axios from 'axios'
 import { useHistory, useParams } from 'react-router-dom'
 import { BASE_URL } from '../base url/BaseURL'
 import { RepoCard } from '../components/RepoCard'
-import { bindActionCreators } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { setRepos } from '../redux/actions/actions'
+import { setRepos } from '../redux/actions/repos/setRepos'
 
 export default function ReposPage() {
     const { username } = useParams()

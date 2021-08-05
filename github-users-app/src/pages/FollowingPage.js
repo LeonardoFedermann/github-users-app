@@ -8,8 +8,7 @@ import { BASE_URL } from '../base url/BaseURL'
 import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
-import { bindActionCreators } from 'redux'
-import { setFollowingUsers } from '../redux/actions/actions'
+import { setFollowingUsers } from '../redux/actions/followingUsers/setFollowingUsers'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function FollowingPage() {
