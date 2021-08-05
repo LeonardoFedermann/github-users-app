@@ -8,19 +8,20 @@ import { BASE_URL } from '../base url/BaseURL'
 import { goToFirstProfile } from '../coordinator/Coordinator'
 import { useUnprotectedPage } from '../custom hooks/useUnprotectedPage'
 import { bindActionCreators } from 'redux'
-import * as actions from '../actions/actions'
-import { connect } from 'react-redux'
+import { saveUser } from '../redux/actions/actions'
+import { useSelector, useDispatch } from 'react-redux'
 
-function LoginPage(props) {
+export default function LoginPage() {
     const [user, setUser] = useState({})
-    const { logedUser, saveUser } = props
+    const logedUser = useSelector(state => state.logedUser)
+    const dispatch = useDispatch()
     const [form, setForm, handleValues] = useForm({ username: "" })
     const history = useHistory()
 
     useUnprotectedPage(history, logedUser)
 
     useEffect(() => {
-        saveUser(user)
+        dispatch(saveUser(user))
     }, [user])
 
     const login = async (e) => {
@@ -58,10 +59,3 @@ function LoginPage(props) {
         </LoginContainer>
     )
 }
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
-const mapStateToProps = state => ({
-    logedUser: state.logedUser
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)

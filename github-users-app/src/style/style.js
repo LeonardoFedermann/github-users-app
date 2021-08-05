@@ -164,13 +164,12 @@ p{
 `
 
 export const ReposCardContainer = styled.section`
-height: 90px;
 width: 100%;
 margin-top: 5%;
 border-bottom: 1px solid ${borderColor};
 display: flex;
-align-items: start;;
-justify-content: flex-end;
+align-items: start;
+justify-content: center;
 div{
     width: 90%;
     h3{

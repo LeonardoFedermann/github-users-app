@@ -7,12 +7,14 @@ import { useHistory, useParams } from 'react-router-dom'
 import { BASE_URL } from '../base url/BaseURL'
 import { RepoCard } from '../components/RepoCard'
 import { bindActionCreators } from 'redux'
-import * as actions from '../actions/actions'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setRepos } from '../redux/actions/actions'
 
-function ReposPage(props) {
+export default function ReposPage() {
     const { username } = useParams()
-    const { logedUser, repos, setRepos } = props
+    const logedUser = useSelector(state => state.logedUser)
+    const repos = useSelector(state => state.repos)
+    const dispatch = useDispatch()
     const history = useHistory()
     const [quantity, setQuantity] = useState(0)
 
@@ -26,7 +28,7 @@ function ReposPage(props) {
             const repos = await axios.get(`${BASE_URL}/users/${username}/repos`)
             const user = await axios.get(`${BASE_URL}/users/${username}`)
             setQuantity(user.data.public_repos)
-            setRepos(repos.data)
+            dispatch(setRepos(repos.data))
         } catch (error) {
             alert(error.response.data.message)
         }
@@ -48,11 +50,3 @@ function ReposPage(props) {
         </MainContainer>
     )
 }
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
-const mapStateToProps = state => ({
-    repos: state.repos,
-    logedUser: state.logedUser
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReposPage)

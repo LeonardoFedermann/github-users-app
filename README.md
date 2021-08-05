@@ -28,7 +28,7 @@ Algumas das ferramentas utilizadas, todas próprias do React.js, foram:
 - React Router, de modo a estruturas a navegação pelas páginas;
 - Hooks nativos do React.js, tais como useState, useEffect e useContext;
 - Custom Hooks, visando a efetuar a autenticação e autorização de acesso e a possibilitar o uso de input controlado no campo de login;
-- Redux, de forma a gerenciar o estado global da aplicação, que contém, dentre outras informações, os repositórios do usuário visualizado e os dados do usuário logado. Todos os arquivos próprios do Redux (actions, reducers, store e afins) se encontram em pastas próprias;
+- Redux, de forma a gerenciar o estado global da aplicação, que contém, dentre outras informações, os repositórios do usuário visualizado e os dados do usuário logado. Todos os arquivos próprios do Redux (actions, reducers, store e afins) se encontram na pasta "redux";
 - Styled-Components e Material UI, com o objetivo de estilizar a aplicação;
 - Axios, de modo a realizar a integração com a API do GitHub.
 

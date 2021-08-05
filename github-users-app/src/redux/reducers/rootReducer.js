@@ -4,7 +4,7 @@ import { followingUsers } from './followingUsers'
 import { logedUser } from './logedUser'
 import { repos } from './repos'
 
-export const reducers = combineReducers({
+export const rootReducer = combineReducers({
     followers,
     followingUsers,
     logedUser,

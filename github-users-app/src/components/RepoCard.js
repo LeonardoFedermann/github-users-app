@@ -6,7 +6,7 @@ export const RepoCard = (props) => {
         <ReposCardContainer>
             <div>
                 <h3>{props.name}</h3>
-                <p>{props.descrition}</p>
+                <p>{props.description}</p>
                 <p><strong>&#9733;</strong> {props.stargazers}</p>
             </div>
         </ReposCardContainer>
