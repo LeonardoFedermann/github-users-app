@@ -8,8 +8,7 @@ import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
 import { goToProfile } from '../coordinator/Coordinator'
-import { bindActionCreators } from 'redux'
-import { setFollowers } from '../redux/actions/actions'
+import { setFollowers } from '../redux/actions/followers/setFollowers'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function FollowersPage() {

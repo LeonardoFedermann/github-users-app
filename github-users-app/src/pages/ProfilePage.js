@@ -9,8 +9,8 @@ import { goBack, goToLogin } from '../coordinator/Coordinator'
 import { ProfilePresentation } from '../components/ProfilePresentation'
 import { ProfileNumbers } from '../components/ProfileNumbers'
 import { ProfileBio } from '../components/ProfileBio'
-import { bindActionCreators } from 'redux'
-import { logOut, saveUser } from '../redux/actions/actions'
+import { logOut } from '../redux/actions/logedUser/logOut'
+import { saveUser } from '../redux/actions/logedUser/saveUser'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function ProfilePage() {
