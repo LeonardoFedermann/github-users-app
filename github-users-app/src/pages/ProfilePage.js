@@ -10,12 +10,13 @@ import { ProfilePresentation } from '../components/ProfilePresentation'
 import { ProfileNumbers } from '../components/ProfileNumbers'
 import { ProfileBio } from '../components/ProfileBio'
 import { bindActionCreators } from 'redux'
-import * as actions from '../actions/actions'
-import { connect } from 'react-redux'
+import { logOut, saveUser } from '../redux/actions/actions'
+import { useSelector, useDispatch } from 'react-redux'
 
-function ProfilePage(props) {
+export default function ProfilePage() {
     const [user, setUser] = useState({})
-    const { logedUser, saveUser, logOut } = props
+    const logedUser = useSelector(state => state.logedUser)
+    const dispatch = useDispatch()
     const history = useHistory()
     const { username } = useParams()
 
@@ -35,7 +36,7 @@ function ProfilePage(props) {
     }
 
     const logout = () => {
-        logOut()
+        dispatch(logOut())
         goToLogin(history)
     }
 
@@ -43,7 +44,7 @@ function ProfilePage(props) {
         <MainContainer>
             <ProfileHeader
                 login={user.login}
-                function={logedUser.login === user.login ? logout : ()=> saveUser(user)}
+                function={logedUser.login === user.login ? logout : () => dispatch(saveUser(user))}
                 buttonWord={logedUser.login === user.login ? 'Sair' : 'Salvar'}
                 buttonColor={logedUser.login === user.login ? 'red' : 'green'}
                 goToLastPage={() => goBack(history)}
@@ -68,9 +69,3 @@ function ProfilePage(props) {
         </MainContainer>
     )
 }
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
-const mapStateToProps = state => ({
-    logedUser: state.logedUser
-})
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)

@@ -2,7 +2,7 @@ import Routes from './routes/Routes'
 import { Theme } from './style/Theme'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { Provider } from 'react-redux'
-import { store } from './store'
+import { store } from './redux/store'
 
 export default function App() {
   return (

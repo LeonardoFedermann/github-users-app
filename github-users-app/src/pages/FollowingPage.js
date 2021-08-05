@@ -9,12 +9,14 @@ import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
 import { bindActionCreators } from 'redux'
-import * as actions from '../actions/actions'
-import { connect } from 'react-redux'
+import { setFollowingUsers } from '../redux/actions/actions'
+import { useSelector, useDispatch } from 'react-redux'
 
-function FollowingPage(props) {
+export default function FollowingPage() {
     const history = useHistory()
-    const { logedUser, followingUsers, setFollowingUsers } = props
+    const logedUser = useSelector(state => state.logedUser)
+    const followingUsers = useSelector(state => state.followingUsers)
+    const dispatch = useDispatch()
     const { username } = useParams()
     const [quantity, setQuantity] = useState(0)
 
@@ -28,7 +30,7 @@ function FollowingPage(props) {
         try {
             const followingUsers = await axios.get(`${BASE_URL}/users/${username}/following`)
             const user = await axios.get(`${BASE_URL}/users/${username}`)
-            setFollowingUsers(followingUsers.data)
+            dispatch(setFollowingUsers(followingUsers.data))
             setQuantity(user.data.following)
         } catch (error) {
             alert(error.response.data.message)
@@ -50,11 +52,3 @@ function FollowingPage(props) {
         </MainContainer>
     )
 }
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
-const mapStateToProps = state => ({
-    followingUsers: state.followingUsers,
-    logedUser: state.logedUser
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(FollowingPage)
