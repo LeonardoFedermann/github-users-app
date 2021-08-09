@@ -1,7 +1,7 @@
 ## GITHUB USERS APP
 
 Aplicação em React.js criada com o objetivo de ser um aplicativo Mobile por meio do qual usuários do GitHub possam acessar informações de outros usuários.  
-<a href="https://github-app-leonardo-federmann.surge.sh/">Link da aplicação</a>
+<a href="https://github-app-leonardo-federmann.surge.sh/">Link da aplicação</a>    
 <a href="https://docs.github.com/en/rest">API do GitHub</a>
 
 ### FUNCIONALIDADES E NAVEGAÇÃO      
