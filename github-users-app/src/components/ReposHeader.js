@@ -9,7 +9,7 @@ export const ReposHeader = (props) => {
     return (
         <ReposHeaderContainer>
             <h4 onClick={() => goBack(history)}>&#x2190;</h4>
-            <h4>{props.publicRepos} repositórios de {props.username}</h4>
+            <h4>{props.username} has {props.publicRepos} repositories</h4>
         </ReposHeaderContainer>
     )
 }

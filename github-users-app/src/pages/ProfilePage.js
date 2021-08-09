@@ -45,7 +45,7 @@ export default function ProfilePage() {
             <ProfileHeader
                 login={user.login}
                 function={logedUser.login === user.login ? logout : () => dispatch(saveUser(user))}
-                buttonWord={logedUser.login === user.login ? 'Sair' : 'Salvar'}
+                buttonWord={logedUser.login === user.login ? 'Log out' : 'Save'}
                 buttonColor={logedUser.login === user.login ? 'red' : 'green'}
                 goToLastPage={() => goBack(history)}
             />

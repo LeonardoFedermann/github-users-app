@@ -39,7 +39,7 @@ export default function FollowingPage() {
     return (
         <MainContainer>
             <UsersListHeader
-                showingPhrase={`${username} segue ${quantity} usuários`}
+                showingPhrase={`${username} follows ${quantity} users`}
             />
             {followingUsers && followingUsers.map((followingUser) => {
                 return <UserCard

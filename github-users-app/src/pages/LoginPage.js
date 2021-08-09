@@ -40,7 +40,7 @@ export default function LoginPage() {
             <LoginForm onSubmit={login}>
                 <StyledTextField
                     required
-                    label="Usuário"
+                    label="User"
                     color="black"
                     variant="filled"
                     onChange={handleValues}
@@ -52,7 +52,7 @@ export default function LoginPage() {
                     variant="contained"
                     type='submit'
                 >
-                    Entrar
+                    Sign in
                 </StyledButton>
             </LoginForm>
         </LoginContainer>
