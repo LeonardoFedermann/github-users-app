@@ -10,11 +10,11 @@ export const ProfileNumbers = (props) => {
         <ProfileNumbersContainer >
             <div onClick={() => goToListOfFollowers(history, props.login)}>
                 <h1>{props.followers}</h1>
-                <p>Seguidores</p>
+                <p>Followers</p>
             </div>
             <div onClick={() => goToListOfFollowingUsers(history, props.login)}>
                 <h1>{props.following}</h1>
-                <p>Seguindo</p>
+                <p>Following</p>
             </div>
             <div onClick={() => goToReposList(history, props.login)}>
                 <h1>{props.repos}</h1>

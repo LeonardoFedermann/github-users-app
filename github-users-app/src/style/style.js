@@ -236,6 +236,9 @@ align-items: center;
 background-color: ${primary};
 color: white;
 font-family: 'Arial';
+h1{
+    text-align: center;
+}
 img{
     width: 30%;
 }

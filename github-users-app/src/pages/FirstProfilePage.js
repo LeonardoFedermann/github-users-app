@@ -45,7 +45,7 @@ export default function FirstProfilePage() {
             <FirstProfileHeader
                 login={user.login}
                 function={logedUser.login === user.login ? logout : () => dispatch(saveUser(user))}
-                buttonWord={logedUser.login === user.login ? 'Sair' : 'Salvar'}
+                buttonWord={logedUser.login === user.login ? 'Log out' : 'Save'}
                 buttonColor={logedUser.login === user.login ? 'red' : 'green'}
             />
             <ProfileImage alt={user.login} src={user.avatar_url} />
