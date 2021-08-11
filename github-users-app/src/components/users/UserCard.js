@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserCardContainer } from '../style/style'
+import { UserCardContainer } from '../../style/usersStyle'
 
 export const UserCard = (props) => {
     return (

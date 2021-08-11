@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfileHeaderContainer } from '../style/style'
+import { ProfileHeaderContainer } from '../../style/profileStyle'
 
 export const FirstProfileHeader = (props) => {
     return (

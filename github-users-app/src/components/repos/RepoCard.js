@@ -1,5 +1,5 @@
 import React from 'react'
-import { ReposCardContainer } from '../style/style'
+import { ReposCardContainer } from '../../style/reposStyle'
 
 export const RepoCard = (props) => {
     return (
