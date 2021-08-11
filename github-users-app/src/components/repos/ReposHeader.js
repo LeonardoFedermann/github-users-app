@@ -1,6 +1,6 @@
 import React from 'react'
-import { ReposHeaderContainer } from '../style/style'
-import { goBack } from '../coordinator/Coordinator'
+import { ReposHeaderContainer } from '../../style/reposStyle'
+import { goBack } from '../../coordinator/Coordinator'
 import { useHistory } from 'react-router-dom'
 
 export const ReposHeader = (props) => {

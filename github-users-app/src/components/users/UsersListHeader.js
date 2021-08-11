@@ -1,6 +1,6 @@
 import React from 'react'
-import { UsersListHeaderContainer } from '../style/style'
-import { goBack } from '../coordinator/Coordinator'
+import { UsersListHeaderContainer } from '../../style/usersStyle'
+import { goBack } from '../../coordinator/Coordinator'
 import { useHistory } from 'react-router-dom'
 
 export const UsersListHeader = (props) => {

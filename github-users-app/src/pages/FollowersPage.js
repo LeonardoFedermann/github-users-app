@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { MainContainer } from '../style/style'
-import { UserCard } from '../components/UserCard'
-import { UsersListHeader } from '../components/UsersListHeader'
+import { MainContainer } from '../style/mainContainerStyle'
+import { UserCard } from '../components/users/UserCard'
+import { UsersListHeader } from '../components/users/UsersListHeader'
 import { BASE_URL } from '../base url/BaseURL'
 import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
@@ -22,6 +22,7 @@ export default function FollowersPage() {
     useProtectedPage(history, logedUser)
 
     useEffect(() => {
+        document.title = `${username}'s followers`
         getFollowers()
     }, [])
 

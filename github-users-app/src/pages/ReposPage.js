@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { MainContainer } from '../style/style'
-import { ReposHeader } from '../components/ReposHeader'
+import { MainContainer } from '../style/mainContainerStyle'
+import { ReposHeader } from '../components/repos/ReposHeader'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import axios from 'axios'
 import { useHistory, useParams } from 'react-router-dom'
 import { BASE_URL } from '../base url/BaseURL'
-import { RepoCard } from '../components/RepoCard'
+import { RepoCard } from '../components/repos/RepoCard'
 import { useSelector, useDispatch } from 'react-redux'
 import { setRepos } from '../redux/actions/repos/setRepos'
 
@@ -19,6 +19,7 @@ export default function ReposPage() {
 
     useProtectedPage(history, logedUser)
     useEffect(() => {
+        document.title = `${username}'s repos`
         getRepos()
     }, [])
 

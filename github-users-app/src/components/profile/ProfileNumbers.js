@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { ProfileNumbersContainer } from '../style/style'
-import { goToListOfFollowers, goToListOfFollowingUsers, goToReposList } from '../coordinator/Coordinator'
+import { ProfileNumbersContainer } from '../../style/profileStyle'
+import { goToListOfFollowers, goToListOfFollowingUsers, goToReposList } from '../../coordinator/Coordinator'
 
 export const ProfileNumbers = (props) => {
     const history = useHistory()

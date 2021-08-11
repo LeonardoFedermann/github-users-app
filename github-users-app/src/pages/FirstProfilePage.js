@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import axios from 'axios'
-import { MainContainer, ProfileImage } from '../style/style'
+import { MainContainer } from '../style/mainContainerStyle'
+import { ProfileImage } from '../style/profileStyle'
 import { BASE_URL } from '../base url/BaseURL'
-import { FirstProfileHeader } from '../components/FirstProfileHeader'
+import { FirstProfileHeader } from '../components/profile/FirstProfileHeader'
 import { goToLogin } from '../coordinator/Coordinator'
-import { ProfilePresentation } from '../components/ProfilePresentation'
-import { ProfileNumbers } from '../components/ProfileNumbers'
-import { ProfileBio } from '../components/ProfileBio'
+import { ProfilePresentation } from '../components/profile/ProfilePresentation'
+import { ProfileNumbers } from '../components/profile/ProfileNumbers'
+import { ProfileBio } from '../components/profile/ProfileBio'
 import { logOut } from '../redux/actions/logedUser/logOut'
 import { saveUser } from '../redux/actions/logedUser/saveUser'
 import { useSelector, useDispatch } from 'react-redux'
@@ -23,8 +24,9 @@ export default function FirstProfilePage() {
     useProtectedPage(history, logedUser)
 
     useEffect(() => {
+        document.title = user.login ? `${user.login}'s profile` : 'loading'
         getUser()
-    }, [])
+    }, [user])
 
     const getUser = async () => {
         try {
@@ -42,29 +44,31 @@ export default function FirstProfilePage() {
 
     return (
         <MainContainer>
-            <FirstProfileHeader
-                login={user.login}
-                function={logedUser.login === user.login ? logout : () => dispatch(saveUser(user))}
-                buttonWord={logedUser.login === user.login ? 'Log out' : 'Save'}
-                buttonColor={logedUser.login === user.login ? 'red' : 'green'}
-            />
-            <ProfileImage alt={user.login} src={user.avatar_url} />
-            <ProfilePresentation
-                name={user.login && user.name ?
-                    user.name :
-                    user.login}
-                email={user.email}
-                location={user.location}
-            />
-            <ProfileNumbers
-                login={user.login}
-                followers={user.followers}
-                following={user.following}
-                repos={user.public_repos}
-            />
-            <ProfileBio
-                bio={user.bio}
-            />
+            <>
+                <FirstProfileHeader
+                    login={user.login}
+                    function={logedUser.login === user.login ? logout : () => dispatch(saveUser(user))}
+                    buttonWord={logedUser.login === user.login ? 'Log out' : 'Save'}
+                    buttonColor={logedUser.login === user.login ? 'red' : 'green'}
+                />
+                <ProfileImage alt={user.login} src={user.avatar_url} />
+                <ProfilePresentation
+                    name={user.login && user.name ?
+                        user.name :
+                        user.login}
+                    email={user.email}
+                    location={user.location}
+                />
+                <ProfileNumbers
+                    login={user.login}
+                    followers={user.followers}
+                    following={user.following}
+                    repos={user.public_repos}
+                />
+                <ProfileBio
+                    bio={user.bio}
+                />
+            </>
         </MainContainer>
     )
 }

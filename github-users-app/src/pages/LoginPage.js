@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { LoginContainer, LoginForm, StyledTextField, StyledButton } from '../style/style'
+import { LoginContainer, LoginForm, StyledTextField, StyledButton } from '../style/loginStyle'
 import { githubLogo } from '../images/images'
 import { useForm } from '../custom hooks/useForm'
 import { BASE_URL } from '../base url/BaseURL'
@@ -20,6 +20,7 @@ export default function LoginPage() {
     useUnprotectedPage(history, logedUser)
 
     useEffect(() => {
+        document.title = 'Welcome to GitHub Users App!'
         dispatch(saveUser(user))
     }, [user])
 

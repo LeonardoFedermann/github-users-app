@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import axios from 'axios'
-import { MainContainer, ProfileImage } from '../style/style'
+import { MainContainer } from '../style/mainContainerStyle'
+import { ProfileImage } from '../style/profileStyle'
 import { BASE_URL } from '../base url/BaseURL'
-import { ProfileHeader } from '../components/ProfileHeader'
+import { ProfileHeader } from '../components/profile/ProfileHeader'
 import { goBack, goToLogin } from '../coordinator/Coordinator'
-import { ProfilePresentation } from '../components/ProfilePresentation'
-import { ProfileNumbers } from '../components/ProfileNumbers'
-import { ProfileBio } from '../components/ProfileBio'
+import { ProfilePresentation } from '../components/profile/ProfilePresentation'
+import { ProfileNumbers } from '../components/profile/ProfileNumbers'
+import { ProfileBio } from '../components/profile/ProfileBio'
 import { logOut } from '../redux/actions/logedUser/logOut'
 import { saveUser } from '../redux/actions/logedUser/saveUser'
 import { useSelector, useDispatch } from 'react-redux'
@@ -23,8 +24,9 @@ export default function ProfilePage() {
     useProtectedPage(history, logedUser)
 
     useEffect(() => {
+        document.title = user.login ? `${user.login}'s profile` : 'loading'
         getUser()
-    }, [])
+    }, [user])
 
     const getUser = async () => {
         try {

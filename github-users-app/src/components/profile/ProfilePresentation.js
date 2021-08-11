@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfilePresentationContainer } from '../style/style'
+import { ProfilePresentationContainer } from '../../style/profileStyle'
 
 export const ProfilePresentation = (props) => {
     return (
