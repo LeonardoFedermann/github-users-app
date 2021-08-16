@@ -42,8 +42,9 @@ export default function FollowingPage() {
             <UsersListHeader
                 showingPhrase={`${username} follows ${quantity} users`}
             />
-            {followingUsers && followingUsers.map((followingUser) => {
+            {followingUsers && followingUsers.map((followingUser, index) => {
                 return <UserCard
+                    key={index}
                     login={followingUser.login}
                     imageUrl={followingUser.avatar_url}
                     checkUser={() => goToProfile(history, followingUser.login)}
