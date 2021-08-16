@@ -40,8 +40,9 @@ export default function ReposPage() {
                 publicRepos={quantity}
                 username={username}
             />
-            {repos && repos.map((repo) => {
+            {repos && repos.map((repo, index) => {
                 return <RepoCard
+                    key={index}
                     name={repo.name}
                     description={repo.description}
                     stargazers={repo.stargazers_count}

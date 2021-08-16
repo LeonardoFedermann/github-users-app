@@ -19,6 +19,7 @@ export default function FollowersPage() {
     const { username } = useParams()
     const [quantity, setQuantity] = useState(0)
 
+
     useProtectedPage(history, logedUser)
 
     useEffect(() => {
@@ -42,8 +43,9 @@ export default function FollowersPage() {
             <UsersListHeader
                 showingPhrase={`${username} has ${quantity} followers`}
             />
-            {followers && followers.map((follower) => {
+            {followers && followers.map((follower, index) => {
                 return <UserCard
+                    key={index}
                     login={follower.login}
                     imageUrl={follower.avatar_url}
                     checkUser={() => goToProfile(history, follower.login)}

@@ -12,6 +12,7 @@ import { ProfileNumbers } from '../components/profile/ProfileNumbers'
 import { ProfileBio } from '../components/profile/ProfileBio'
 import { logOut } from '../redux/actions/logedUser/logOut'
 import { saveUser } from '../redux/actions/logedUser/saveUser'
+import { changeUser } from '../redux/actions/logedUser/changeUser'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function ProfilePage() {
@@ -38,7 +39,7 @@ export default function ProfilePage() {
     }
 
     const logout = () => {
-        dispatch(logOut())
+        dispatch(changeUser())
         goToLogin(history)
     }
 
@@ -46,7 +47,7 @@ export default function ProfilePage() {
         <MainContainer>
             <ProfileHeader
                 login={user.login}
-                function={logedUser.login === user.login ? logout : () => dispatch(saveUser(user))}
+                function={logedUser.login === user.login ? logout : () => dispatch(changeUser(user.login))}
                 buttonWord={logedUser.login === user.login ? 'Log out' : 'Save'}
                 buttonColor={logedUser.login === user.login ? 'red' : 'green'}
                 goToLastPage={() => goBack(history)}
