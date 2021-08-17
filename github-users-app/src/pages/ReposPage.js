@@ -7,7 +7,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { BASE_URL } from '../base url/BaseURL'
 import { RepoCard } from '../components/repos/RepoCard'
 import { useSelector, useDispatch } from 'react-redux'
-import { setRepos } from '../redux/actions/repos/setRepos'
+import { getRepos } from '../redux/actions/getRepos'
 
 export default function ReposPage() {
     const { username } = useParams()
@@ -20,15 +20,14 @@ export default function ReposPage() {
     useProtectedPage(history, logedUser)
     useEffect(() => {
         document.title = `${username}'s repos`
-        getRepos()
+        getUserRepos()
     }, [])
 
-    const getRepos = async () => {
+    const getUserRepos = async () => {
         try {
-            const repos = await axios.get(`${BASE_URL}/users/${username}/repos`)
+            dispatch(getRepos(username))
             const user = await axios.get(`${BASE_URL}/users/${username}`)
             setQuantity(user.data.public_repos)
-            dispatch(setRepos(repos.data))
         } catch (error) {
             alert(error.response.data.message)
         }

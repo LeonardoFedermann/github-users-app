@@ -12,13 +12,13 @@ const saveUser = async (username) => {
 }
 
 function* changeUser(action) {
-    if (!action.payload.user) {
+    if (!action.payload.username) {
         yield put({
             type: 'LOG_OUT',
         })
     } else {
         try {
-            const user = yield call(()=>saveUser(action.payload.user))
+            const user = yield call(() => saveUser(action.payload.username))
             yield put({
                 type: 'SAVE_USER',
                 payload: {
@@ -26,7 +26,7 @@ function* changeUser(action) {
                 }
             })
         } catch (error) {
-            throw new Error(error.response.data.message)
+            alert(error.message)
         }
     }
 }

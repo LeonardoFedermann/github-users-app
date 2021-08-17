@@ -19,7 +19,7 @@ export default function ErrorPage() {
                 <h1>Ops! There is nothing here.</h1>
                 <p>
                     It looks like this URL doesn't exist. However, you may go to our home page! There you will find all the information you need.
-                 </p>
+                </p>
                 <StyledButton
                     color="secondary"
                     variant="contained"

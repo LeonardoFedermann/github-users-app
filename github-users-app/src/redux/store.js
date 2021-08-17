@@ -3,10 +3,6 @@ import { rootReducer } from './reducers/rootReducer'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas/rootSaga'
 
-// export const store = createStore(
-//     rootReducer,
-//     compose(window.devToolsExtension && window.devToolsExtension())
-// )
 const sagaMiddleware = createSagaMiddleware()
 export const store = compose(
     applyMiddleware(sagaMiddleware)

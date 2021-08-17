@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
 import { goToProfile } from '../coordinator/Coordinator'
-import { setFollowers } from '../redux/actions/followers/setFollowers'
+import { getFollowers } from '../redux/actions/getFollowers'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function FollowersPage() {
@@ -19,19 +19,17 @@ export default function FollowersPage() {
     const { username } = useParams()
     const [quantity, setQuantity] = useState(0)
 
-
     useProtectedPage(history, logedUser)
 
     useEffect(() => {
         document.title = `${username}'s followers`
-        getFollowers()
+        getUserFollowers()
     }, [])
 
-    const getFollowers = async () => {
+    const getUserFollowers = async () => {
         try {
-            const followers = await axios.get(`${BASE_URL}/users/${username}/followers`)
+            dispatch(getFollowers(username))
             const user = await axios.get(`${BASE_URL}/users/${username}`)
-            dispatch(setFollowers(followers.data))
             setQuantity(user.data.followers)
         } catch (error) {
             alert(error.response.data.message)
