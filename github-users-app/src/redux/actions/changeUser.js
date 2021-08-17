@@ -1,8 +1,8 @@
-export const changeUser = (user) => {
+export const changeUser = (username) => {
     return {
         type: 'CHANGE_USER',
         payload: {
-            user
+            username
         }
     }
 }
