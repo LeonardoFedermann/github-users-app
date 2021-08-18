@@ -24,13 +24,14 @@ Caso o usuário esteja visualizando seu próprio perfil, será exibido o botão 
 
 ### FERRAMENTAS
 
-Algumas das ferramentas utilizadas, todas próprias do React.js, foram:
-- React Router, de modo a estruturas a navegação pelas páginas;
-- Hooks nativos do React.js, tais como useState, useEffect e useContext;
+Algumas das ferramentas utilizadas foram:
+- Redux, de forma a gerenciar o estado global da aplicação, que contém, dentre outras informações, os repositórios do perfil visualizado e os dados do usuário logado. Todos os arquivos próprios do Redux (actions, reducers, store e afins) se encontram na pasta "redux";
+- Redux-Saga, de modo a alterar os valores das variáveis de estado com base nas respostas das requisições feitas para a API do GitHub. Todos os arquivos próprios do Redux Saga (sagas, requests e rootSaga) se encontram na pasta "sagas", dentro da pasta "redux";
+- Axios, de modo a realizar as requisições e a integração com a API do GitHub;
+- Hooks próprios do React.js e do React-Redux, tais como useState, useEffect, useSelector e useDispatch;
 - Custom Hooks, visando a efetuar a autenticação e autorização de acesso e a possibilitar o uso de input controlado no campo de login;
-- Redux, de forma a gerenciar o estado global da aplicação, que contém, dentre outras informações, os repositórios do usuário visualizado e os dados do usuário logado. Todos os arquivos próprios do Redux (actions, reducers, store e afins) se encontram na pasta "redux";
-- Styled-Components e Material UI, com o objetivo de estilizar a aplicação;
-- Axios, de modo a realizar a integração com a API do GitHub.
+- React Router, de modo a estruturar a navegação pelas páginas;
+- Styled-Components e Material UI, com o objetivo de estilizar a aplicação.        
 
 ### O QUE FUNCIONA
 

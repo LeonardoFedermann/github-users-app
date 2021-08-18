@@ -5,8 +5,8 @@ import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router-dom'
 import { RepoCard } from '../components/repos/RepoCard'
 import { useSelector, useDispatch } from 'react-redux'
-import { getRepos } from '../redux/actions/getRepos'
-import { getQuantityRepos } from '../redux/actions/getQuantityRepos'
+import { getRepos } from '../redux/actions/repos/getRepos'
+import { getQuantityRepos } from '../redux/actions/quantity/getQuantityRepos'
 
 export default function ReposPage() {
     const { username } = useParams()

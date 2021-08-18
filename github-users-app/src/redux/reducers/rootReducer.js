@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { followers } from './followers'
-import { followingUsers } from './followingUsers'
-import { logedUser } from './logedUser'
-import { repos } from './repos'
-import { quantity } from './quantity'
-import { renderedUser } from './renderedUser'
+import { followers } from './reducers/followers'
+import { followingUsers } from './reducers/followingUsers'
+import { logedUser } from './reducers/logedUser'
+import { repos } from './reducers/repos'
+import { quantity } from './reducers/quantity'
+import { renderedProfile } from './reducers/renderedProfile'
 
 export const rootReducer = combineReducers({
     followers,
@@ -12,5 +12,5 @@ export const rootReducer = combineReducers({
     logedUser,
     repos,
     quantity,
-    renderedUser
+    renderedProfile
 })

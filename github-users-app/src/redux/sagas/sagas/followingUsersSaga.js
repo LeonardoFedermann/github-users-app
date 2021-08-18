@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { getFollowingUsersFromAPI } from './requests/getFollowingUsersFromAPI'
+import { getFollowingUsersFromAPI } from '../requests/getFollowingUsersFromAPI'
 
 function* getFollowingUsers(action) {
     try {

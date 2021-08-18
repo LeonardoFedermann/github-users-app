@@ -1,5 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
-import { getReposFromAPI } from './requests/getReposFromAPI'
+import { getReposFromAPI } from '../requests/getReposFromAPI'
 
 function* getRepos(action) {
     try {

@@ -6,8 +6,8 @@ import { UsersListHeader } from '../components/users/UsersListHeader'
 import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
-import { getFollowingUsers } from '../redux/actions/getFollowingUsers'
-import { getQuantityFollowing } from '../redux/actions/getQuantityFollowing'
+import { getFollowingUsers } from '../redux/actions/followingUsers/getFollowingUsers'
+import { getQuantityFollowing } from '../redux/actions/quantity/getQuantityFollowing'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function FollowingPage() {

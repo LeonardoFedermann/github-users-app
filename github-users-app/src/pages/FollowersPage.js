@@ -6,9 +6,9 @@ import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
 import { goToProfile } from '../coordinator/Coordinator'
-import { getFollowers } from '../redux/actions/getFollowers'
+import { getFollowers } from '../redux/actions/followers/getFollowers'
 import { useSelector, useDispatch } from 'react-redux'
-import { getQuantityFollowers } from '../redux/actions/getQuantityFollowers'
+import { getQuantityFollowers } from '../redux/actions/quantity/getQuantityFollowers'
 
 export default function FollowersPage() {
     const followers = useSelector(state => state.followers)
