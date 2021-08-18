@@ -1,15 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
-import axios from 'axios'
-import { BASE_URL } from '../../base url/BaseURL'
-
-const getReposFromAPI = async (username) => {
-    try {
-        const repos = await axios.get(`${BASE_URL}/users/${username}/repos`)
-        return repos.data
-    } catch (error) {
-        throw new Error(error.response.data.message)
-    }
-}
+import { getReposFromAPI } from './requests/getReposFromAPI'
 
 function* getRepos(action) {
     try {

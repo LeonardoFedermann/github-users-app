@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import { MainContainer } from '../style/mainContainerStyle'
 import { UserCard } from '../components/users/UserCard'
 import { goToProfile } from '../coordinator/Coordinator'
 import { UsersListHeader } from '../components/users/UsersListHeader'
-import { BASE_URL } from '../base url/BaseURL'
 import { useEffect } from 'react'
 import { useProtectedPage } from '../custom hooks/useProtectedPage'
 import { useHistory, useParams } from 'react-router'
 import { getFollowingUsers } from '../redux/actions/getFollowingUsers'
+import { getQuantityFollowing } from '../redux/actions/getQuantityFollowing'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function FollowingPage() {
     const history = useHistory()
     const logedUser = useSelector(state => state.logedUser)
     const followingUsers = useSelector(state => state.followingUsers)
+    const quantity = useSelector(state => state.quantity)
     const dispatch = useDispatch()
     const { username } = useParams()
-    const [quantity, setQuantity] = useState(0)
 
     useProtectedPage(history, logedUser)
 
@@ -26,14 +25,9 @@ export default function FollowingPage() {
         getFollowing()
     }, [])
 
-    const getFollowing = async () => {
-        try {
-            const user = await axios.get(`${BASE_URL}/users/${username}`)
-            dispatch(getFollowingUsers(username))
-            setQuantity(user.data.following)
-        } catch (error) {
-            alert(error.response.data.message)
-        }
+    const getFollowing = () => {
+        dispatch(getFollowingUsers(username))
+        dispatch(getQuantityFollowing(username))
     }
 
     return (
