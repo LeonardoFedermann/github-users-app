@@ -8,12 +8,12 @@ import { goBack, goToLogin } from '../coordinator/Coordinator'
 import { ProfilePresentation } from '../components/profile/ProfilePresentation'
 import { ProfileNumbers } from '../components/profile/ProfileNumbers'
 import { ProfileBio } from '../components/profile/ProfileBio'
-import { changeLogedUser } from '../redux/actions/changeLogedUser'
-import { getRenderedUser } from '../redux/actions/getRenderedUser'
+import { changeLogedUser } from '../redux/actions/logedUser/changeLogedUser'
+import { getRenderedProfile } from '../redux/actions/renderedProfile/getRenderedProfile'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function ProfilePage() {
-    const renderedUser = useSelector(state => state.renderedUser)
+    const renderedProfile = useSelector(state => state.renderedProfile)
     const logedUser = useSelector(state => state.logedUser)
     const dispatch = useDispatch()
     const history = useHistory()
@@ -22,9 +22,9 @@ export default function ProfilePage() {
     useProtectedPage(history, logedUser)
 
     useEffect(() => {
-        document.title = renderedUser.login ? `${renderedUser.login}'s profile` : 'loading'
-        dispatch(getRenderedUser(username))
-    }, [renderedUser])
+        document.title = renderedProfile.login ? `${renderedProfile.login}'s profile` : 'loading'
+        dispatch(getRenderedProfile(username))
+    }, [renderedProfile])
 
     const logout = () => {
         dispatch(changeLogedUser())
@@ -35,32 +35,32 @@ export default function ProfilePage() {
         <MainContainer>
             <>
                 <ProfileHeader
-                    login={renderedUser.login}
+                    login={renderedProfile.login}
                     function={
-                        logedUser.login === renderedUser.login ?
+                        logedUser.login === renderedProfile.login ?
                             logout :
-                            () => dispatch(changeLogedUser(renderedUser.login))
+                            () => dispatch(changeLogedUser(renderedProfile.login))
                     }
-                    buttonWord={logedUser.login === renderedUser.login ? 'Log out' : 'Save'}
-                    buttonColor={logedUser.login === renderedUser.login ? 'red' : 'green'}
+                    buttonWord={logedUser.login === renderedProfile.login ? 'Log out' : 'Save'}
+                    buttonColor={logedUser.login === renderedProfile.login ? 'red' : 'green'}
                     goToLastPage={() => goBack(history)}
                 />
-                <ProfileImage alt={renderedUser.login} src={renderedUser.avatar_url} />
+                <ProfileImage alt={renderedProfile.login} src={renderedProfile.avatar_url} />
                 <ProfilePresentation
-                    name={renderedUser.login && renderedUser.name ?
-                        renderedUser.name :
-                        renderedUser.login}
-                    email={renderedUser.email}
-                    location={renderedUser.location}
+                    name={renderedProfile.login && renderedProfile.name ?
+                        renderedProfile.name :
+                        renderedProfile.login}
+                    email={renderedProfile.email}
+                    location={renderedProfile.location}
                 />
                 <ProfileNumbers
-                    login={renderedUser.login}
-                    followers={renderedUser.followers}
-                    following={renderedUser.following}
-                    repos={renderedUser.public_repos}
+                    login={renderedProfile.login}
+                    followers={renderedProfile.followers}
+                    following={renderedProfile.following}
+                    repos={renderedProfile.public_repos}
                 />
                 <ProfileBio
-                    bio={renderedUser.bio}
+                    bio={renderedProfile.bio}
                 />
             </>
         </MainContainer>

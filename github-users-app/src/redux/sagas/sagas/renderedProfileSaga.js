@@ -1,12 +1,12 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
-import { getUser } from './requests/getUser'
+import { getUser } from '../requests/getUser'
 
-function* getRenderedUser(action) {
+function* getRenderedProfile(action) {
     const { payload } = action
     try {
         const user = yield call(() => getUser(payload.username))
         yield put({
-            type: 'SET_RENDERED_USER',
+            type: 'SET_RENDERED_PROFILE',
             payload: {
                 user
             }
@@ -16,8 +16,8 @@ function* getRenderedUser(action) {
     }
 }
 
-function* renderedUserSaga() {
-    yield takeEvery('GET_RENDERED_USER', getRenderedUser)
+function* renderedProfileSaga() {
+    yield takeEvery('GET_RENDERED_PROFILE', getRenderedProfile)
 }
 
-export default renderedUserSaga
+export default renderedProfileSaga

@@ -5,7 +5,7 @@ import { githubLogo } from '../images/images'
 import { useForm } from '../custom hooks/useForm'
 import { goToFirstProfile } from '../coordinator/Coordinator'
 import { useUnprotectedPage } from '../custom hooks/useUnprotectedPage'
-import { changeLogedUser } from '../redux/actions/changeLogedUser'
+import { changeLogedUser } from '../redux/actions/logedUser/changeLogedUser'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function LoginPage() {

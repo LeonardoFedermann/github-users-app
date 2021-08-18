@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { getUser } from './requests/getUser'
+import { getUser } from '../requests/getUser'
 
 function* getQuantity(action) {
     const { type, payload } = action

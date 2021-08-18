@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects'
-import logedUserSaga from './logedUserSaga'
-import followersSaga from './followersSaga'
-import followingUsersSaga from './followingUsersSaga'
-import reposSaga from './reposSaga'
-import quantitySaga from './quantitySaga'
-import renderedUserSaga from './renderedUserSaga'
+import logedUserSaga from './sagas/logedUserSaga'
+import followersSaga from './sagas/followersSaga'
+import followingUsersSaga from './sagas/followingUsersSaga'
+import reposSaga from './sagas/reposSaga'
+import quantitySaga from './sagas/quantitySaga'
+import renderedProfileSaga from './sagas/renderedProfileSaga'
 
 export default function* rootSaga() {
     yield all([
@@ -13,6 +13,6 @@ export default function* rootSaga() {
         followingUsersSaga(),
         reposSaga(),
         quantitySaga(),
-        renderedUserSaga()
+        renderedProfileSaga()
     ])
 }
