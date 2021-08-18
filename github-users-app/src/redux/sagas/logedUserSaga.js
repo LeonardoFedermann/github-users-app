@@ -1,24 +1,14 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { BASE_URL } from '../../base url/BaseURL'
-import axios from 'axios'
+import { getUser } from './requests/getUser'
 
-const saveUser = async (username) => {
-    try {
-        const user = await axios.get(`${BASE_URL}/users/${username}`)
-        return user.data
-    } catch (error) {
-        throw new Error(error.response.data.message)
-    }
-}
-
-function* changeUser(action) {
+function* changeLogedUser(action) {
     if (!action.payload.username) {
         yield put({
             type: 'LOG_OUT',
         })
     } else {
         try {
-            const user = yield call(() => saveUser(action.payload.username))
+            const user = yield call(() => getUser(action.payload.username))
             yield put({
                 type: 'SAVE_USER',
                 payload: {
@@ -32,7 +22,7 @@ function* changeUser(action) {
 }
 
 function* logedUserSaga() {
-    yield takeEvery('CHANGE_USER', changeUser)
+    yield takeEvery('CHANGE_LOGED_USER', changeLogedUser)
 }
 
 export default logedUserSaga

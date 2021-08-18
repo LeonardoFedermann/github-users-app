@@ -1,15 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { BASE_URL } from '../../base url/BaseURL'
-import axios from 'axios'
-
-const getFollowersFromAPI = async (username) => {
-    try {
-        const followers = await axios.get(`${BASE_URL}/users/${username}/followers`)
-        return followers.data
-    } catch (error) {
-        throw new Error(error.response.data.message)
-    }
-}
+import {getFollowersFromAPI} from './requests/getFollowersFromAPI'
 
 function* getFollowers(action) {
     try {
