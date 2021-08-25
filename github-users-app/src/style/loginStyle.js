@@ -28,7 +28,6 @@ justify-content: space-between;
 
 export const StyledTextField = styled(TextField)`
 width: 100%;
-color: white;
 `
 
 export const StyledButton = styled(Button)`

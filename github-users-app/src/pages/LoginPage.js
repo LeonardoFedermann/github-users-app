@@ -33,7 +33,7 @@ export default function LoginPage() {
                 <StyledTextField
                     required
                     label="User"
-                    color="black"
+                    color="secondary"
                     variant="filled"
                     onChange={handleValues}
                     name="username"
