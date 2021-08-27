@@ -44,7 +44,7 @@ All the explained functionalities are properly working. The application was deve
 
 ### WHAT DOES NOT WORK
 
-There will be slight flawns in styling and design in case the application is used in Desktop, since it was not developed for it. Besides, the quantities of repositories, followers and following users that are displayed will be limited to 30, as this is the limit returned by GitHub's API.     
+There will be slight flawns in styling and design in case the application is used in Desktop or in Mobile's horizontal position, since it was not developed for it. Besides, the quantities of repositories, followers and following users that are displayed will be limited to 30, as this is the limit returned by GitHub's API.     
 ____________________________________________________________
 
 ## README EM PORTUGUÊS
@@ -92,5 +92,5 @@ Todas as funcionalidades supracitadas estão em pleno desempenho. A aplicação 
 
 ### O QUE NÃO FUNCIONA
 
-Haverá leves desvios na estilização e design caso a aplicação seja usada em Desktop, visto não ter sido elaborada para tal. Ademais, a quantidade de repositórios, seguidores e usuários seguidos será limitada a 30, visto que esse é o limite retornado pela API do GitHub.
+Haverá leves desvios na estilização e design caso a aplicação seja usada em Desktop ou na posição horizontal de Mobile, visto não ter sido elaborada para tal. Ademais, a quantidade de repositórios, seguidores e usuários seguidos será limitada a 30, visto que esse é o limite retornado pela API do GitHub.
 
