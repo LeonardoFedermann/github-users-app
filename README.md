@@ -3,7 +3,7 @@
 ## README IN ENGLISH
 
 React.js application designed to be a Mobile App through which GitHub users are able to check other users' information.     
-<a href="https://github-app-leonardo-federmann.surge.sh/">App's link</a>    
+<a href="https://github-app-leonardo-federmann.surge.sh/">App URL</a>    
 <a href="https://docs.github.com/en/rest">GitHub API</a>
 
 ### FUNCTIONALITIES AND NAVIGATION
